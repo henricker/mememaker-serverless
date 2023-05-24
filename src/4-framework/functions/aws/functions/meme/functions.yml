@@ -1,0 +1,7 @@
+CreateMemeHandler:
+   handler: ${self:custom.functionsDir}/modules/meme/CreateMeme/handler.handler
+   events:
+    - http:
+        method: POST
+        path: /meme
+        cors: true

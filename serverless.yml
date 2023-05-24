@@ -1,0 +1,40 @@
+service: dinheirowServerless
+
+frameworkVersion: '2'
+
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  lambdaHashingVersion: 20201221s
+  
+  iamRoleStatements:
+    - Effect: Allow
+      Action: "sqs:*"
+      Resource: "*"
+    - Effect: Allow
+      Action: "sns:*"
+      Resource: "*"
+    - Effect: Allow
+      Action: "dynamodb:*"
+      Resource: "*"
+
+custom:
+  stage: "${opt:stage, self:provider.stage}"
+  functionsDir: src/4-framework/functions
+  webpack:
+    webpackConfig: 'webpack.config.js'
+    excludeFiles: tests/**
+  
+plugins:
+  - serverless-webpack
+  - serverless-offline
+  - serverless-dotenv-plugin
+
+resources:
+  - ${file(${self:custom.functionsDir}/aws/resources/users/dynamodb/users-dynamodb.yml)}
+functions:
+  - ${file(${self:custom.functionsDir}/aws/functions/users/functions.yml)}
+  - ${file(${self:custom.functionsDir}/aws/functions/auth/functions.yml)}
+  - ${file(${self:custom.functionsDir}/aws/functions/meme/functions.yml)}

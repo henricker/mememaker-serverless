@@ -1,0 +1,23 @@
+node_modules
+.webpack
+**/coverage
+.vscode
+./layer/*
+nodejs.zip
+.serverless
+
+# environments
+.env
+.env.local
+.env.production
+.env.test
+
+packages
+
+ignore
+
+env.json
+env.staging.json
+env.production.json
+
+lib

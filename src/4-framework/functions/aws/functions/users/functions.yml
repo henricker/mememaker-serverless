@@ -1,0 +1,7 @@
+CreateUserHandler:
+   handler: ${self:custom.functionsDir}/modules/users/CreateUser/handler.handler
+   events:
+    - http:
+        method: POST
+        path: /users
+        cors: true
