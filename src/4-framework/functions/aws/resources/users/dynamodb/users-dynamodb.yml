@@ -17,3 +17,5 @@ Resources:
         ReadCapacityUnits: 5
         WriteCapacityUnits: 5
       BillingMode: PROVISIONED
+      StreamSpecification:
+        StreamViewType: NEW_IMAGE

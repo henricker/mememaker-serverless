@@ -26,6 +26,7 @@ custom:
   webpack:
     webpackConfig: 'webpack.config.js'
     excludeFiles: tests/**
+    includeModules: true
   
 plugins:
   - serverless-webpack

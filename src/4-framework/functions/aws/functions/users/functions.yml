@@ -5,3 +5,15 @@ CreateUserHandler:
         method: POST
         path: /users
         cors: true
+
+SendWelcomeMailToUser:
+   handler: ${self:custom.functionsDir}/modules/users/SendMailWelcomeToUser/handler.handler
+   events:
+    - stream:
+        type: dynamodb
+        filterPatterns:
+          - eventName: [INSERT]
+        arn:
+          Fn::GetAtt:
+            - UsersTable
+            - StreamArn

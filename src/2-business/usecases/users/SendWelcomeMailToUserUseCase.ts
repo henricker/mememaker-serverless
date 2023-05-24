@@ -33,7 +33,7 @@ export class SendWelcomeMailToUserUseCase
       to: props.email,
       from: 'contato@serverless.com',
       html,
-      subject: 'Bem-vindo(a) à nossa plataforma',
+      subject: 'Bem-vindo(a) à nossa plataforma de memes!',
     })
   }
 
@@ -78,6 +78,7 @@ export class SendWelcomeMailToUserUseCase
         <div class="container">
             <h1>Bem-vindo(a)! ${input.name}</h1>
             <p>Obrigado por se juntar a nós. Estamos animados para tê-lo(a) como parte da nossa comunidade de memes!.</p>
+            <img src="https://www.cryptotimes.io/wp-content/uploads/2023/04/pepe_coin.jpg.webp"/>
             <p>Para começar, clique no botão abaixo:</p>
             <a href="#" class="button">Criar memes</a>
         </div>
