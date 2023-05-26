@@ -4,6 +4,7 @@ import {
   ValidateAuthTokenUseCase,
   ValidateAuthTokenUseCaseToken,
 } from '@business/usecases/auth/ValidateAuthTokenUseCase'
+import { IUser } from '@domain/users/IUser'
 import { AbstractOperator } from '../abstractOperator'
 
 export const ValidateAuthTokenOperatorToken = Symbol.for(
@@ -13,7 +14,7 @@ export const ValidateAuthTokenOperatorToken = Symbol.for(
 @injectable()
 export class ValidateAuthTokenOperator extends AbstractOperator<
   ValidateAuthTokenSerializer,
-  boolean
+  IUser
 > {
   constructor(
     @inject(ValidateAuthTokenUseCaseToken)
@@ -22,7 +23,7 @@ export class ValidateAuthTokenOperator extends AbstractOperator<
     super()
   }
 
-  run(input: ValidateAuthTokenSerializer): Promise<boolean> {
+  run(input: ValidateAuthTokenSerializer): Promise<IUser> {
     this.exec(input)
     return this.validateAuthTokenUseCase.exec(input)
   }

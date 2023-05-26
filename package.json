@@ -1,5 +1,5 @@
 {
-  "name": "background_jobs_dinheirow",
+  "name": "mememaker",
   "version": "1.0.0",
   "description": "SQS and lambda jobs",
   "main": "serverless.ts",

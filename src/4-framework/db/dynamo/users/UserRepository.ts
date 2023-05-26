@@ -22,6 +22,7 @@ export class UserRepository implements IUserRepository {
   }
   private readonly dynamo = new DynamoDB.DocumentClient()
   async create(props: IUser): Promise<void> {
+    console.log(props)
     await this.dynamo
       .put({
         TableName: 'users',

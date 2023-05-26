@@ -5,6 +5,7 @@ import {
   IUserRepositoryToken,
 } from '@business/repositories/users/IUserRepository'
 import { BusinessError } from '@business/errors/businessError'
+import { IUser } from '@domain/users/IUser'
 import { IUseCase } from '../IUseCase'
 
 export const ValidateAuthTokenUseCaseToken = Symbol.for(
@@ -17,7 +18,7 @@ type ValidateAuthTokenUseCaseInput = {
 
 @injectable()
 export class ValidateAuthTokenUseCase
-  implements IUseCase<ValidateAuthTokenUseCaseInput, boolean>
+  implements IUseCase<ValidateAuthTokenUseCaseInput, IUser>
 {
   constructor(
     @inject(IJwtServiceToken)
@@ -26,14 +27,14 @@ export class ValidateAuthTokenUseCase
     private readonly userRepository: IUserRepository
   ) {}
 
-  async exec(props: ValidateAuthTokenUseCaseInput): Promise<boolean> {
+  async exec(props: ValidateAuthTokenUseCaseInput): Promise<IUser> {
     try {
       const payload = await this.jwtService.verify(props.token)
       const user = await this.userRepository.findById(payload.id)
-      return !!user
+      return user
     } catch (err) {
       if (err instanceof BusinessError) {
-        return false
+        return null
       }
       throw err
     }

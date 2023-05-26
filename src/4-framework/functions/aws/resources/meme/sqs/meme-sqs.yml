@@ -1,0 +1,6 @@
+  Resources:
+    ProcessingMemeQueue:
+      Type: AWS::SQS::Queue
+      Properties:
+        QueueName: "ProcessingMeme"
+        VisibilityTimeout: 30

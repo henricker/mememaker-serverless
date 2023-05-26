@@ -34,7 +34,12 @@ plugins:
   - serverless-dotenv-plugin
 
 resources:
+  # users module resources
   - ${file(${self:custom.functionsDir}/aws/resources/users/dynamodb/users-dynamodb.yml)}
+
+  # memes module resources
+  - ${file(${self:custom.functionsDir}/aws/resources/meme/dynamodb/meme-dynamodb.yml)}
+  - ${file(${self:custom.functionsDir}/aws/resources/meme/sqs/meme-sqs.yml)}
 functions:
   - ${file(${self:custom.functionsDir}/aws/functions/users/functions.yml)}
   - ${file(${self:custom.functionsDir}/aws/functions/auth/functions.yml)}

@@ -41,10 +41,10 @@ export class CreateMemeUseCase
       createdAt: new Date(),
       id: memeId,
       underProcessing: true,
-      userId: props.userId,
+      user_id: props.userId,
     })
     await this.queueService.send({
-      queue: 'meme-maker',
+      queue: 'ProcessingMeme',
       message: JSON.stringify({
         memeId,
         urlImage: props.urlImage,

@@ -42,6 +42,7 @@ export const authMiddleware =
           }),
         }
       }
+      event.headers['x-user-id'] = resultAuth.id
       return handler(event)
     } catch (err) {
       if (err instanceof IError) {

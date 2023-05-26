@@ -4,5 +4,5 @@ export interface IMeme {
   key: string
   underProcessing: boolean
   createdAt: Date
-  userId: string
+  user_id: string
 }
