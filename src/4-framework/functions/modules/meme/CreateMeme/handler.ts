@@ -28,7 +28,6 @@ export const createMemeHandler = async (
       }),
     }
   } catch (err) {
-    console.log(err)
     if (err instanceof IError) {
       return {
         statusCode: err.statusCode,

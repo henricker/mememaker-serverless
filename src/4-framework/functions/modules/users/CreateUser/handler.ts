@@ -21,7 +21,6 @@ export const handler = async (
       body: null,
     }
   } catch (err) {
-    console.log(err)
     if (err instanceof IError) {
       return {
         statusCode: err.statusCode,
