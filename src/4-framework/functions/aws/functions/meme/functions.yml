@@ -5,3 +5,14 @@ CreateMemeHandler:
         method: POST
         path: /meme
         cors: true
+
+ProcessingMemeHandler:
+    handler: ${self:custom.functionsDir}/modules/meme/ProcessingMeme/handler.handler
+    events:
+      - sqs:
+          arn:
+            Fn::GetAtt:
+              - ProcessingMemeQueue
+              - Arn
+          batchSize: 1 
+    

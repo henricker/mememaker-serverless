@@ -1,0 +1,5 @@
+Resources:
+  MemeMakerBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: mememakerimages

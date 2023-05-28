@@ -1,0 +1,8 @@
+{
+    "Records": [
+        {
+            "messageId": "123456",
+            "body": "{ \"meme\": { \"id\": \"d2210c4e-1fe8-494f-a8d8-68cfc11c2237\", \"user_id\": \"1b9ff834-9b2b-4ba9-a90b-a95d8a0d4dca\", \"createdAt\": \"2023-05-28T13:29:17.971Z\", \"underProcessing\": true }, \"processImageParams\": { \"urlImage\": \"https://pyxis.nymag.com/v1/imgs/618/0a9/d04d34a833c6656c02dc608d1adc0d563a-iCim4eXE-400x400.rsquare.w330.jpg\", \"topText\": \"Quando eu tomo bomba\", \"bottomText\":\"fico desse jeitin :3\", \"userId\": \"1b9ff834-9b2b-4ba9-a90b-a95d8a0d4dca\" } }"
+        }
+    ]
+}
