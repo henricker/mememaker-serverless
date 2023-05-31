@@ -16,3 +16,14 @@ ProcessingMemeHandler:
               - Arn
           batchSize: 1 
     
+SendMemeToMailhandler:
+   handler: ${self:custom.functionsDir}/modules/meme/SendMemeToMail/handler.handler
+   events:
+    - stream:
+        type: dynamodb
+        filterPatterns:
+          - eventName: [MODIFY]
+        arn:
+          Fn::GetAtt:
+            - MemesTable
+            - StreamArn
